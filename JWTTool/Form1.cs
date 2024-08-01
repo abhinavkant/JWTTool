@@ -28,6 +28,9 @@ namespace JWTTool
                 RedirectUri = redirectUri,
             };
 
+            options.Policy.Discovery.ValidateEndpoints = false;
+            options.Policy.Discovery.ValidateIssuerName = false;
+
             var client = new OidcClient(options);
             var state = await client.PrepareLoginAsync();
 
